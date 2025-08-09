@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Imposta la codifica dei caratteri per supportare simboli e lettere speciali -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Rende il sito responsive su dispositivi mobili -->
+
+    <title>Etch-a-Sketch</title>
+    <!-- Titolo della pagina che compare nella scheda del browser -->
+
+    <link rel="stylesheet" href="sketch.css">
+    <!-- Collega il file CSS esterno dove si trova lo stile grafico -->
+</head>
+
+<body>
+    <!-- Inizio del corpo della pagina visibile -->
+
+    <div class="flex-container">
+        <!-- Contenitore per il titolo, probabilmente centrato con flexbox -->
+        <div class="title">
+            <h1>SketchPad</h1>
+            <!-- Titolo principale della pagina -->
+        </div>
+    </div>
+
+    <div class="mode">Mode: coloring</div>
+    <!-- Testo che mostra la modalità attiva (verrà aggiornato con JS) -->
+
+    <div class="content">
+        <!-- Contenitore principale della griglia e dei pulsanti -->
+
+        <div class="board"></div>
+        <!-- Questo div verrà riempito con i quadratini via JavaScript -->
+
+        <div class="button">
+            <!-- Contenitore dei pulsanti per cambiare colore o resettare -->
+
+            <button onclick="changeColor('black')">Black</button>
+            <!-- Cambia il colore del pennello a nero -->
+
+            <button onclick="changeColor('white')">Eraser</button>
+            <!-- Cambia il colore del pennello a bianco (gomma) -->
+
+            <button onclick="changeColor('random')">Random</button>
+            <!-- Cambia il colore del pennello a un colore casuale -->
+
+            <button onclick="reset()">Reset</button>
+            <!-- Ripulisce la griglia e la ricrea -->
+        </div>
+    </div>
+
+    <div>
+        <!-- Contenitore per l'input di dimensione griglia -->
+
+        <input type="text" placeholder="Size of Board" value="16" onchange="changeSize(this.value)">
+        <!-- Permette di scrivere la dimensione della griglia (es. 16, 32...) -->
+        <!-- Quando il valore cambia, viene chiamata la funzione changeSize -->
+
+        <button>Set Size</button>
+        <!-- Attualmente questo bottone NON fa nulla (non ha onclick) -->
+        <!-- Per funzionare dovrebbe avere: onclick="changeSize(document.querySelector('input').value)" -->
+    </div>
+
+    <script src="sketch.js"></script>
+    <!-- Collega il file JavaScript dove si gestisce la logica della griglia e del disegno -->
+</body>
+</html>
